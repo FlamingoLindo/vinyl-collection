@@ -1,6 +1,6 @@
 export function ThemeController() {
     return (
-        <div className="absolute top-0 right-0">
+        <div className="absolute top-0 right-0 p-5">
             <label className="swap swap-rotate">
                 <input type="checkbox" className="theme-controller" value="dark" />
 

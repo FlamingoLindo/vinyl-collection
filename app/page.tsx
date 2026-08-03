@@ -9,7 +9,7 @@ export default function Home() {
       id: 0,
       title: "FIND",
       icon: findIcon,
-      path: "find"
+      path: "search"
     },
     {
       id: 1,
