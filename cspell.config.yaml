@@ -1,7 +1,10 @@
 version: "0.2"
-ignorePaths: [.env, .gitignore]
+ignorePaths:
+  - .env
+  - .gitignore
 dictionaryDefinitions: []
 dictionaries: []
-words: []
+words:
+  - daisyui
 ignoreWords: []
 import: []
