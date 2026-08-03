@@ -21,6 +21,7 @@
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^26.1.2",
     "@types/pg": "^8.20.3",
     "@types/react": "^19",

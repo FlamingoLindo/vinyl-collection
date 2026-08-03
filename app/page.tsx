@@ -1,57 +1,37 @@
-'use client'
-import { useEffect, useState } from 'react'
-
+import { HomeBtn, IHomeBtn } from "./components/HomeBtn/HomeBtn";
+import findIcon from "@/app/assets/icons/material-symbols--search.svg";
+import shopIcon from "@/app/assets/icons/mdi--cart-outline.svg";
+import checkIcon from "@/app/assets/icons/material-symbols--check.svg";
 export default function Home() {
-  const [message, setMessage] = useState()
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch('/api/hello')
-      const { message } = await res.json()
-      setMessage(message)
+  const btns: IHomeBtn[] = [
+    {
+      id: 0,
+      title: "FIND",
+      icon: findIcon
+    },
+    {
+      id: 1,
+      title: "WISHLIST",
+      icon: shopIcon
+
+    },
+    {
+      id: 2,
+      title: "COLLECTED",
+      icon: checkIcon
+
     }
-    fetchData()
-  }, [])
-
-  if (!message) return <p>Loading...</p>
+  ]
 
   return (
     <>
-      <p>{message}</p>
-
-      <a href="#" className="hover-3d my-12 mx-2 cursor-pointer">
-
-        {/* content */}
-        <div className="card w-96 bg-black text-white bg-[radial-gradient(circle_at_bottom_left,#ffffff04_35%,transparent_36%),radial-gradient(circle_at_top_right,#ffffff04_35%,transparent_36%)] bg-size-[4.95em_4.95em]">
-          <div className="card-body">
-            <div className="flex justify-between mb-10">
-              <div className="font-bold">BANK OF LATVERIA</div>
-              <div className="text-5xl opacity-10">❁</div>
-            </div>
-            <div className="text-lg mb-4 opacity-40">0210 8820 1150 0222</div>
-            <div className="flex justify-between">
-              <div>
-                <div className="text-xs opacity-20">CARD HOLDER</div>
-                <div>VICTOR VON D.</div>
-              </div>
-              <div>
-                <div className="text-xs opacity-20">EXPIRES</div>
-                <div>29/08</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 8 empty divs needed for the 3D effect */}
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </a></>
+      <div className="flex h-screen items-center justify-center gap-44">
+        {btns.map((btn) => (
+          <HomeBtn key={btn.id} {...btn} />
+        ))}
+      </div>
+    </>
   )
 
 }
