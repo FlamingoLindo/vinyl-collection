@@ -35,7 +35,7 @@ export default function Find() {
 
     return (
         <>
-            <div className="breadcrumbs text-xl p-5 text-black">
+            <div className="breadcrumbs text-xl p-5">
                 <ul>
                     <li><Link href={"/"}>Home</Link></li>
                     <li>Search</li>
