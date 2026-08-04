@@ -15,7 +15,8 @@ export default function FindArtist() {
             },
             tittle: "Kill 'Em All",
             country: "US",
-            launchDate: "1983"
+            launchDate: "1983",
+
         },
         {
             id: 1,
@@ -26,8 +27,10 @@ export default function FindArtist() {
             },
             tittle: "Creeping Death",
             country: "US",
-            launchDate: "1984"
-        }, {
+            launchDate: "1984",
+
+        },
+        {
             id: 2,
             image: {
                 path: "https://i.discogs.com/J4F2IRdoQ0rZ4Rc4Nm2qazzhBQnENMbWZMBdi9FlLW8/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY5NDAx/MzItMTQyOTk5MDE2/My04MzYxLmpwZWc.jpeg",
@@ -36,7 +39,8 @@ export default function FindArtist() {
             },
             tittle: "Kill 'Em All",
             country: "US",
-            launchDate: "1983"
+            launchDate: "1983",
+
         },
         {
             id: 3,
@@ -47,7 +51,8 @@ export default function FindArtist() {
             },
             tittle: "Creeping Death",
             country: "US",
-            launchDate: "1984"
+            launchDate: "1984",
+
         },
         {
             id: 4,
@@ -58,7 +63,8 @@ export default function FindArtist() {
             },
             tittle: "Kill 'Em All",
             country: "US",
-            launchDate: "1983"
+            launchDate: "1983",
+
         },
         {
             id: 5,
@@ -69,7 +75,8 @@ export default function FindArtist() {
             },
             tittle: "Creeping Death",
             country: "US",
-            launchDate: "1984"
+            launchDate: "1984",
+
         },
         {
             id: 6,
@@ -80,7 +87,8 @@ export default function FindArtist() {
             },
             tittle: "Kill 'Em All",
             country: "US",
-            launchDate: "1983"
+            launchDate: "1983",
+
         },
         {
             id: 7,
@@ -91,7 +99,8 @@ export default function FindArtist() {
             },
             tittle: "Creeping Death",
             country: "US",
-            launchDate: "1984"
+            launchDate: "1984",
+
         },
         {
             id: 8,
@@ -102,7 +111,8 @@ export default function FindArtist() {
             },
             tittle: "Kill 'Em All",
             country: "US",
-            launchDate: "1983"
+            launchDate: "1983",
+
         },
         {
             id: 9,
@@ -113,7 +123,8 @@ export default function FindArtist() {
             },
             tittle: "Creeping Death",
             country: "US",
-            launchDate: "1984"
+            launchDate: "1984",
+
         },
         {
             id: 10,
@@ -124,7 +135,8 @@ export default function FindArtist() {
             },
             tittle: "Kill 'Em All",
             country: "US",
-            launchDate: "1983"
+            launchDate: "1983",
+
         }
     ]
     const [selectedVinyls, setSelectedVinyls] = useState<number[]>([]);

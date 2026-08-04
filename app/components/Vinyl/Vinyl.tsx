@@ -14,12 +14,21 @@ export interface IVinyl {
     tittle: string;
     country: string;
     launchDate: string;
+    actions?: React.ReactNode;
 }
 
 export function Vinyl(props: IVinyl) {
 
     return (
-        <>
+        <div className="relative">
+            {props.actions && (
+                <div
+                    className="absolute inset-x-0 top-0 flex justify-between px-2 pt-2 z-40"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    {props.actions}
+                </div>
+            )}
             <div
                 className={props.selected ? "aura aura-xl duration-2000" : ""}
                 onClick={props.onToggle}
@@ -51,10 +60,7 @@ export function Vinyl(props: IVinyl) {
                     <div></div>
                     <div></div>
                 </div>
-            </div >
-
-
-
-        </>
+            </div>
+        </div>
     )
 }
