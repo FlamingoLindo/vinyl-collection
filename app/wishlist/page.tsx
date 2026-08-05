@@ -220,7 +220,7 @@ export default function Wishlist() {
                         <div className="flex gap-2">
                             <button
                                 className="btn btn-error btn-sm cursor-pointer"
-                                onClick={() => console.log()}
+                                onClick={() => modalRef.current?.close()}
                             >
                                 Cancel
                             </button>

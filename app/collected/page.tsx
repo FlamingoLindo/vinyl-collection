@@ -1,10 +1,10 @@
 'use client'
-import { IVinyl, Vinyl } from "@/app/components/Vinyl/Vinyl";
-import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from 'next/navigation'
 
-export default function FindArtist() {
+import Link from "next/link";
+import { IVinyl, Vinyl } from "../components/Vinyl/Vinyl";
+import { useState } from "react";
+
+export default function Collected() {
     const vinyls: IVinyl[] = [
         {
             id: 0,
@@ -128,8 +128,10 @@ export default function FindArtist() {
             launchDate: "1983",
         }
     ]
-
     const [selectedVinyls, setSelectedVinyls] = useState<number[]>([]);
+    const [activeVinyl, setActiveVinyl] = useState<IVinyl | null>(null);
+    const [drawerOpen, setDrawerOpen] = useState(false);
+
     const toggleVinyl = (id: number) => {
         setSelectedVinyls((prev) =>
             prev.includes(id)
@@ -137,57 +139,81 @@ export default function FindArtist() {
                 : [...prev, id]
         );
     };
-    const router = useRouter()
+
+    const handleVinylClick = (vinyl: IVinyl) => {
+        setActiveVinyl(vinyl);
+        toggleVinyl(vinyl.id);
+        setDrawerOpen(true);
+    };
 
     return (
         <>
             <div className="breadcrumbs text-xl p-5">
                 <ul>
                     <li><Link href={"/"}>Home</Link></li>
-                    <li><Link href={"/search"}>Search</Link></li>
-                    <li>Metallica</li>
+                    <li>Collected</li>
                 </ul>
             </div>
 
-            <div className="p-5">
-                <label className="input">
-                    <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <g
-                            strokeLinejoin="round"
-                            strokeLinecap="round"
-                            strokeWidth="2.5"
-                            fill="none"
-                            stroke="currentColor"
-                        >
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.3-4.3"></path>
-                        </g>
-                    </svg>
-                    <input type="search" required placeholder="Search" className="grow bg-transparent outline-none" />
-                </label>
-            </div>
+            <div className="drawer drawer-end">
+                <input
+                    id="my-drawer-5"
+                    type="checkbox"
+                    className="drawer-toggle"
+                    checked={drawerOpen}
+                    onChange={(e) => setDrawerOpen(e.target.checked)}
+                />
+                <div className="drawer-content">
+                    <div className="p-5">
+                        <label className="input">
+                            <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g
+                                    strokeLinejoin="round"
+                                    strokeLinecap="round"
+                                    strokeWidth="2.5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                >
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.3-4.3"></path>
+                                </g>
+                            </svg>
+                            <input type="search" required placeholder="Search" />
+                        </label>
+                    </div>
 
-            <div className="flex flex-wrap justify-center gap-4">
-                {vinyls.map((vinyl) => (
-                    <Vinyl
-                        key={vinyl.id}
-                        {...vinyl}
-                        selected={selectedVinyls.includes(vinyl.id)}
-                        onToggle={() => toggleVinyl(vinyl.id)}
-                    />
-                ))}
-            </div>
-
-            {selectedVinyls.length > 0 && (
-                <div className="fixed inset-x-0 bottom-4 z-10 flex justify-center px-5">
-                    <button
-                        className="btn btn-primary flex w-64 items-center justify-center rounded-full text-xl shadow-xl shadow-primary/20"
-                        onClick={() => router.push('/wishlist')}
-                    >
-                        Wish ({selectedVinyls.length})
-                    </button>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        {vinyls.map((vinyl) => (
+                            <Vinyl
+                                key={vinyl.id}
+                                {...vinyl}
+                                selected={selectedVinyls.includes(vinyl.id)}
+                                onToggle={() => handleVinylClick(vinyl)}
+                            />
+                        ))}
+                    </div>
                 </div>
-            )}
+
+                <div className="drawer-side">
+                    <label
+                        htmlFor="my-drawer-5"
+                        aria-label="close sidebar"
+                        className="drawer-overlay"
+                        onClick={() => setDrawerOpen(false)}
+                    ></label>
+                    <ul className="menu bg-base-200 min-h-full w-80 p-4">
+                        {activeVinyl ? (
+                            <>
+                                <li><span className="font-bold text-lg">{activeVinyl.tittle}</span></li>
+                                <li><span>Country: {activeVinyl.country}</span></li>
+                                <li><span>Release: {activeVinyl.launchDate}</span></li>
+                            </>
+                        ) : (
+                            <li><a>No vinyl selected</a></li>
+                        )}
+                    </ul>
+                </div>
+            </div>
         </>
     )
 }
