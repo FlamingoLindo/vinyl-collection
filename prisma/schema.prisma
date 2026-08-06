@@ -11,3 +11,20 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum Status {
+  COLLECTED
+  WISH
+}
+
+model Vinyls {
+  id          String  @id @default(uuid())
+  title       String
+  country     String
+  artist      String
+  launchDate  String
+  image       String
+  status      Status  @default(WISH)
+  collectDate String?
+  price       Float?
+}

@@ -12,3 +12,7 @@ export default defineConfig({
     url: process.env["DATABASE_URL"],
   },
 });
+
+// npm run prisma
+// npx prisma migrate dev --name init
+// npx prisma generate

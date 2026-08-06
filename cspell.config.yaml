@@ -5,8 +5,11 @@ ignorePaths:
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - catno
   - daisyui
   - discogs
+  - in_wantlist
+  - namevariations
   - turbopack
 ignoreWords: []
 import: []
