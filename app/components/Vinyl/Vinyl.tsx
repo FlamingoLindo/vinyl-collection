@@ -30,12 +30,12 @@ export function Vinyl(props: IVinyl) {
                 </div>
             )}
             <div
-                className={props.selected ? "aura aura-xl duration-2000" : ""}
+                className={props.selected ? "animate-[pulse_3s_ease-in-out_infinite]" : ""}
                 onClick={props.onToggle}
             >
                 <div className="hover-3d">
                     {/* content */}
-                    <div className="card bg-gray-500 w-60 shadow-sm">
+                    <div className="card bg-[url('/vinyl-bg.jpg')] bg-contain bg-center w-60 shadow-sm p-4">
                         <figure>
                             <Image className="size-20 rounded-box"
                                 width={props.image.w}
@@ -45,9 +45,13 @@ export function Vinyl(props: IVinyl) {
                                 loading="eager"
                             />
                         </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">{props.tittle}</h2>
-                            <p>{props.country} - {props.launchDate}</p>
+                        <div className="card-body text-white">
+                            <p className="text-lg font-black tracking-tight truncate drop-shadow-md">
+                                {props.tittle}
+                            </p>
+                            <p className="text-sm font-medium text-white/70 tracking-wide">
+                                {props.country} - {props.launchDate}
+                            </p>
                         </div>
                     </div>
                     {/* 8 empty divs needed for the 3D effect */}

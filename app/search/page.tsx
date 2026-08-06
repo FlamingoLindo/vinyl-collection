@@ -44,14 +44,13 @@ export default function Find() {
 
             <div className="flex items-center justify-center p-2 ">
                 <fieldset className="fieldset">
-                    <label className="label text-2xl text-black" htmlFor="artist">Artist</label>
-                    <input type="text" id="artist" className="text-2xl input focus:outline-none focus:ring-0 border-black bg-gray-100" placeholder="Metallica" />
+                    <label className="label text-2xl text-[#24211d]" htmlFor="artist">Artist</label>
+                    <input type="text" id="artist" className="text-2xl input focus:outline-none focus:ring-0 border-2 border-black bg-gray-100 placeholder:text-[#24211d]/50" placeholder="Metallica" />
                 </fieldset>
             </div>
 
             {artists.length > 0 && (
-                <ul className="list bg-base-100 rounded-box shadow-md max-w-3xl mx-auto">
-                    <li className="p-4 pb-2 text-xl tracking-wide">Artists found</li>
+                <ul className="list bg-[#c0b8ac] rounded-box shadow-md max-w-3xl mx-auto border-8 border-[#fcf9f5]">
                     {artists.map((artist) => (
                         <ArtistFound key={artist.id} {...artist} />
                     ))}

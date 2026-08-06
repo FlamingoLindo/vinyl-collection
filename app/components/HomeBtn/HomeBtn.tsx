@@ -14,16 +14,15 @@ export function HomeBtn(props: IHomeBtn) {
         <div>
             <Link href={`/${props.path}`}>
                 <button
-                    className="btn flex flex-col items-center justify-center gap-3 w-52 h-52 rounded-3xl
-                           bg-linear-to-br from-blue-500 to-blue-700
-                           shadow-lg shadow-blue-900/30
-                           border border-blue-400/40
+                    className="
+                           btn-active flex flex-col items-center justify-center gap-3 w-52 h-52 rounded-2xl
+                           bg-linear-to-br from-[#56524c] to-[#3b3935]
                            transition-all duration-200
-                           hover:scale-105 hover:shadow-xl hover:shadow-blue-900/40
-                           active:scale-95"
+                           hover:scale-125 cursor-pointer
+                           "
                 >
                     <Icon className="w-16 h-16 text-white/90" />
-                    <span className="text-lg text-white font-semibold tracking-wide">
+                    <span className="text-lg text-white font-semibold">
                         {props.title}
                     </span>
                 </button>

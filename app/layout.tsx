@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { ThemeController } from './components/ThemeController/ThemeController'
 export const metadata: Metadata = {
   title: 'Vinyl Collection',
   description: 'Our vinyl collection'
@@ -13,8 +12,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <ThemeController />
+      <body className=''>
 
         {children}
       </body>

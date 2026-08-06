@@ -150,7 +150,7 @@ export default function FindArtist() {
             </div>
 
             <div className="p-5">
-                <label className="input">
+                <label className="input border-2 border-black ">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g
                             strokeLinejoin="round"
@@ -163,7 +163,7 @@ export default function FindArtist() {
                             <path d="m21 21-4.3-4.3"></path>
                         </g>
                     </svg>
-                    <input type="search" required placeholder="Search" className="grow bg-transparent outline-none" />
+                    <input type="search" required placeholder="Search" className="grow bg-transparent" />
                 </label>
             </div>
 
