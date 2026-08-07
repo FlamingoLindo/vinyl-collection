@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 export interface IVinyl {
-    id: number;
+    id: string;
     selected?: boolean;
     onToggle?: () => void;
 
@@ -11,7 +11,7 @@ export interface IVinyl {
         w: number;
     };
 
-    tittle: string;
+    title: string;
     country: string;
     launchDate: string;
     actions?: React.ReactNode;
@@ -41,13 +41,13 @@ export function Vinyl(props: IVinyl) {
                                 width={props.image.w}
                                 height={props.image.h}
                                 src={props.image.path}
-                                alt={props.tittle}
+                                alt={props.title}
                                 loading="eager"
                             />
                         </figure>
                         <div className="card-body text-white">
                             <p className="text-lg font-black tracking-tight truncate drop-shadow-md">
-                                {props.tittle}
+                                {props.title}
                             </p>
                             <p className="text-sm font-medium text-white/70 tracking-wide">
                                 {props.country} - {props.launchDate}

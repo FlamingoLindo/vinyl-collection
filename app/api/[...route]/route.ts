@@ -53,7 +53,7 @@ app.get('/collected', withPrisma, async (c) => {
 app.get('/collected/:id', withPrisma, async (c) => {
   const prisma = c.get("prisma");
   const id = c.req.param('id');
-  const collectedVinyl = await prisma.vinyls.findMany({
+  const collectedVinyl = await prisma.vinyls.findFirst({
     where: {
       status: "COLLECTED",
       id: id
@@ -63,7 +63,12 @@ app.get('/collected/:id', withPrisma, async (c) => {
       price: true
     }
   });
-  return c.json({ collectedVinyl })
+
+  if (!collectedVinyl) {
+    return c.json({ error: "Not found" }, 404);
+  }
+
+  return c.json({ collectedVinyl });
 })
 
 app.post('/wish', withPrisma, async (c) => {
